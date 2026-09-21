@@ -1,0 +1,6 @@
+node_modules/
+results/
+fixtures/attachments/
+suites/p0/*.spec.ts
+!suites/p0/.gitkeep
+discovery_out.json

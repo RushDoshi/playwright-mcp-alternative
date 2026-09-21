@@ -1,0 +1,35 @@
+# ============================================================================
+# UI-test environments — committed, NON-SECRET. Credentials never live here;
+# they come from the host .env (TEST_USER / TEST_PASS). See src/quality_os/
+# uitest/envs.py.
+#
+# Pick which block is used with TEST_ENV in .env (falls back to default_env).
+# ============================================================================
+default_env: staging
+
+environments:
+  staging:
+    login_url: "https://staging.example.com/login"
+    # Regex (case-insensitive) that the post-login URL should match.
+    home_match: "/home|dashboard"
+    nav_timeout_ms: 45000
+    field_timeout_ms: 20000
+
+    # Optional: only needed for a progressive/multi-step login
+    # (email -> "Continue" -> password appears). Leave empty for a normal
+    # single-page login where email+password+submit are all visible at once.
+    progressive_login: {}
+    #   continue_text: "Continue"
+    #   password_label: "Password"
+    #   submit_text: "Sign in"
+
+    # Optional: per-feature navigation hints for the designer (free-form).
+    features: {}
+
+  prod:
+    login_url: "https://app.example.com/login"
+    home_match: "/home|dashboard"
+    nav_timeout_ms: 45000
+    field_timeout_ms: 20000
+    progressive_login: {}
+    features: {}

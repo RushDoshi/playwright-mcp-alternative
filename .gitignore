@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Runtime state / caches (generated at run time)
+.cache/
+state/
+/app/
+
+# Playwright
+node_modules/
+playwright/results/
+playwright/fixtures/attachments/
+playwright/suites/p0/*.spec.ts
+playwright/discovery_out.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+.pytest_cache/

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ai-native-qa demo login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 360px; margin: 60px auto; }
+    input, button { display:block; width:100%; padding:10px; margin:8px 0; box-sizing:border-box; }
+    .err { color:#b00; min-height:1.2em; }
+    .home { padding:20px; border:1px solid #ccc; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <h2>Demo Login</h2>
+  <!-- Dummy credentials: demo@example.com / Passw0rd! -->
+  <div id="login">
+    <input id="email" type="email" placeholder="Email" />
+    <input id="password" type="password" placeholder="Password" />
+    <button type="submit" id="submit" onclick="doLogin()">Sign in</button>
+    <div class="err" id="err"></div>
+  </div>
+  <div id="home" class="home" style="display:none">
+    <h3>Dashboard</h3>
+    <p>Welcome — you are logged in.</p>
+  </div>
+  <script>
+    function doLogin() {
+      var e = document.getElementById('email').value;
+      var p = document.getElementById('password').value;
+      var err = document.getElementById('err');
+      if (e === 'demo@example.com' && p === 'Passw0rd!') {
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('home').style.display = 'block';
+        // change the URL so a HOME_MATCH (/home|dashboard/) assertion passes
+        history.pushState({}, '', '#/home/dashboard');
+      } else {
+        err.textContent = 'Invalid credentials';
+      }
+    }
+  </script>
+</body>
+</html>
